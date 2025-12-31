@@ -1,4 +1,5 @@
-import Header from "@/components/Header";
+"use client";
+
 import TradingViewWidget from "@/components/TradingViewWidget";
 import {
   HEATMAP_WIDGET_CONFIG,
@@ -7,17 +8,22 @@ import {
   TOP_STORIES_WIDGET_CONFIG,
 } from "@/lib/constants";
 import { scriptUrlHelper } from "@/lib/utils";
+import { useMemo } from "react";
 
 export default function HomePage() {
+  const marketOverviewConfig = useMemo(() => MARKET_OVERVIEW_WIDGET_CONFIG, []);
+  const heatmapConfig = useMemo(() => HEATMAP_WIDGET_CONFIG, []);
+  const topStoriesConfig = useMemo(() => TOP_STORIES_WIDGET_CONFIG, []);
+  const marketDataConfig = useMemo(() => MARKET_DATA_WIDGET_CONFIG, []);
+
   return (
     <div className="flex min-h-screen home-wrapper">
-      <Header />
       <section className="grid w-full gap-8 home-section">
         <div className="md:col-span-1 xl:col-span-1">
           <TradingViewWidget
             title="Market Overview"
             scriptUrl={scriptUrlHelper("market-overview")}
-            config={MARKET_OVERVIEW_WIDGET_CONFIG}
+            config={marketOverviewConfig}
             className="custom-chart"
             height={600}
           />
@@ -26,7 +32,7 @@ export default function HomePage() {
           <TradingViewWidget
             title="Stock Heatmap"
             scriptUrl={scriptUrlHelper("stock-heatmap")}
-            config={HEATMAP_WIDGET_CONFIG}
+            config={heatmapConfig}
             className="custom-chart"
             height={600}
           />
@@ -36,7 +42,7 @@ export default function HomePage() {
         <div className="h-full md:col-span-1 xl:col-span-1">
           <TradingViewWidget
             scriptUrl={scriptUrlHelper("timeline")}
-            config={TOP_STORIES_WIDGET_CONFIG}
+            config={topStoriesConfig}
             className="custom-chart"
             height={600}
           />
@@ -44,7 +50,7 @@ export default function HomePage() {
         <div className="h-full md:col-span-1 xl:col-span-2">
           <TradingViewWidget
             scriptUrl={scriptUrlHelper("market-quotes")}
-            config={MARKET_DATA_WIDGET_CONFIG}
+            config={marketDataConfig}
             className="custom-chart"
             height={600}
           />

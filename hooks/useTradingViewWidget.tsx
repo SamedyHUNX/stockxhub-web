@@ -12,6 +12,7 @@ export function useTradingViewWidget({
   height?: number;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const configKey = JSON.stringify(config);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -23,7 +24,7 @@ export function useTradingViewWidget({
     const script = document.createElement("script");
     script.src = scriptUrl;
     script.async = true;
-    script.innerHTML = JSON.stringify(config);
+    script.innerHTML = configKey;
 
     containerRef.current.appendChild(script);
     containerRef.current.dataset.loaded = "true";
@@ -34,7 +35,7 @@ export function useTradingViewWidget({
         delete containerRef.current.dataset.loaded;
       }
     };
-  }, [scriptUrl, config, height]);
+  }, [scriptUrl, configKey, height]);
 
   return containerRef;
 }
