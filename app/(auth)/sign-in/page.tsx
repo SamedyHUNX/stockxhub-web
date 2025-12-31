@@ -28,7 +28,7 @@ export default function SignInPage() {
   };
   return (
     <>
-      <h1 className="form-title">Sign Up and Personalize</h1>
+      <h1 className="form-title">Sign In and Start Your Journey</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <InputField
