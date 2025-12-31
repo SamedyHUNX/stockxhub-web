@@ -5,12 +5,15 @@ import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
 import { Button } from "@/components/ui/button";
+import { signUpWithEmail } from "@/lib/actions/auth.action";
 import {
   INVESTMENT_GOALS,
   PREFERRED_INDUSTRIES,
   RISK_TOLERANCE_OPTIONS,
 } from "@/lib/constants";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 export default function SignUpPage() {
   const {
@@ -30,12 +33,19 @@ export default function SignUpPage() {
     },
     mode: "onBlur",
   });
+  const router = useRouter();
 
   const onSubmit = async (data: SignUpFormData) => {
     try {
-      console.log(data);
-    } catch (error) {
+      const result = await signUpWithEmail(data);
+
+      if (result.success) {
+        toast.success(result.message);
+        router.push("/");
+      }
+    } catch (error: any) {
       console.error(error);
+      toast.error(error.message);
     }
   };
 
