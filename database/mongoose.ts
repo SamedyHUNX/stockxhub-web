@@ -42,4 +42,5 @@ export async function connectToDatabase() {
   }
 
   console.log(`Connected to database`);
+  return cached.conn;
 }
