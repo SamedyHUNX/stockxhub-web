@@ -27,7 +27,7 @@ export default function CountrySelectField() {
 
   return (
     <div className="space-y-2">
-      <Label>Select your country</Label>
+      <Label className="mb-3">Select your country</Label>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
