@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NavItem from "./NavItem";
 import UserDropdown from "./UserDropdown";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Header() {
   return (
@@ -19,7 +20,10 @@ export default function Header() {
         <nav className="hidden sm:block">
           <NavItem />
         </nav>
-        <UserDropdown />
+        <div className="flex items-center">
+          <ThemeSwitcher />
+          <UserDropdown />
+        </div>
       </div>
     </header>
   );
