@@ -1,13 +1,9 @@
-"use client";
-
 import BrandLogo from "@/components/BrandLogo";
-import { useTheme } from "next-themes";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import Image from "next/image";
-import Link from "next/link";
 import { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
-  const { theme } = useTheme();
   return (
     <main className="auth-layout">
       <section className="auth-left-section scrollbar-hide-default">
@@ -17,6 +13,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
       </section>
 
       <section className="auth-right-section">
+        <ThemeSwitcher />
         <div className="z-10 relative lg:mt-4 lg:mb-16">
           <blockquote className="auth-blockquote">
             StockXHub turned what was once a tedious process into a seamless
