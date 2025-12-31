@@ -1,20 +1,17 @@
+"use client";
+
+import BrandLogo from "@/components/BrandLogo";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
+  const { theme } = useTheme();
   return (
     <main className="auth-layout">
       <section className="auth-left-section scrollbar-hide-default">
-        <Link href={"/"} className="auth-logo">
-          <Image
-            src={"/assets/icons/logo.svg"}
-            alt="stockxhub"
-            width={140}
-            height={32}
-            className="h-8 w-auto"
-          />
-        </Link>
+        <BrandLogo className="auth-logo" />
 
         <div className="pb-6 lg:pb-8 flex-1">{children}</div>
       </section>
