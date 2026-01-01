@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import countryList from "react-select-country-list";
 import {
   Popover,
@@ -18,15 +18,55 @@ import {
 } from "../ui/command";
 import { cn, getFlagEmoji } from "@/lib/utils";
 
-export default function CountrySelectField() {
+interface CountrySelectFieldProps {
+  value?: string;
+  defaultValue?: string;
+  onChange?: (val: string) => void;
+  className?: string; // Standard practice to accept className
+  [key: string]: any; // Allow forwarding other props
+}
+
+export default function CountrySelectField({
+  value,
+  defaultValue = "",
+  onChange,
+  className,
+  ...props
+}: CountrySelectFieldProps) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
+  const [internalValue, setInternalValue] = useState(defaultValue);
+
+  // Use controlled value if provided, otherwise internal state
+  const currentValue = value !== undefined ? value : internalValue;
+
   const options = useMemo(() => countryList().getData(), []);
 
-  const selectedCountry = options.find((country) => country.value === value);
+  // Sync internal state when controlled value changes
+  useEffect(() => {
+    if (value !== undefined) {
+      setInternalValue(value);
+    }
+  }, [value]);
+
+  const selectedCountry = options.find((country) => country.value === currentValue);
+
+  const handleSelect = (countryValue: string) => {
+    const newValue = countryValue === currentValue ? "" : countryValue;
+
+    // Only update internal state if uncontrolled (or always sync, but effect handles the sync back)
+    // Actually, good practice for hybrid components is to let the parent drive via useEffect if controlled.
+    // If we update both here, it might double render or be redundant, but safe.
+    // However, if strict controlled, we depend on parent passing back the new value.
+    if (value === undefined) {
+      setInternalValue(newValue);
+    }
+
+    onChange?.(newValue);
+    setOpen(false);
+  };
 
   return (
-    <div className="space-y-2">
+    <div className={cn("space-y-2", className)}>
       <Label className="mb-3">Select your country</Label>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
@@ -35,11 +75,12 @@ export default function CountrySelectField() {
             role="combobox"
             aria-expanded={open}
             className="w-full justify-between"
+            {...props}
           >
-            {value ? (
+            {currentValue ? (
               <span className="flex items-center gap-2">
-                <span>{getFlagEmoji(selectedCountry!.value)}</span>
-                <span>{selectedCountry!.label}</span>
+                <span>{getFlagEmoji(selectedCountry?.value || "")}</span>
+                <span>{selectedCountry?.label}</span>
               </span>
             ) : (
               "Select your country..."
@@ -57,15 +98,14 @@ export default function CountrySelectField() {
                   <CommandItem
                     key={country.value}
                     value={country.label}
-                    onSelect={() => {
-                      setValue(country.value === value ? "" : country.value);
-                      setOpen(false);
-                    }}
+                    onSelect={() => handleSelect(country.value)}
                   >
                     <Check
                       className={cn(
                         "mr-2 h-4 w-4",
-                        value === country.value ? "opacity-100" : "opacity-0"
+                        currentValue === country.value
+                          ? "opacity-100"
+                          : "opacity-0"
                       )}
                     />
                     <span className="mr-2">{getFlagEmoji(country.value)}</span>

@@ -4,11 +4,20 @@ import {
   NEWS_SUMMARY_EMAIL_TEMPLATE,
 } from "@/lib/nodemailer/templates";
 
+const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
+const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;
+
+if (!NODEMAILER_EMAIL || !NODEMAILER_PASSWORD) {
+  throw new Error(
+    "NODEMAILER_EMAIL and NODEMAILER_PASSWORD must be defined in environment variables"
+  );
+}
+
 export const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.NODEMAILER_EMAIL!,
-    pass: process.env.NODEMAILER_PASSWORD!,
+    user: NODEMAILER_EMAIL,
+    pass: NODEMAILER_PASSWORD,
   },
 });
 
@@ -17,10 +26,10 @@ export const sendWelcomeEmail = async ({
   name,
   intro,
 }: WelcomeEmailData) => {
-  const htmlTemplate = WELCOME_EMAIL_TEMPLATE.replace("{{name}}", name).replace(
-    "{{intro}}",
-    intro
-  );
+  const htmlTemplate = WELCOME_EMAIL_TEMPLATE.replaceAll(
+    "{{name}}",
+    name
+  ).replaceAll("{{intro}}", intro);
 
   const mailOptions = {
     from: `"StockXHub" <admin@stockxhub.com>`,
@@ -42,10 +51,10 @@ export const sendNewsSummaryEmail = async ({
   date: string;
   newsContent: string;
 }): Promise<void> => {
-  const htmlTemplate = NEWS_SUMMARY_EMAIL_TEMPLATE.replace(
+  const htmlTemplate = NEWS_SUMMARY_EMAIL_TEMPLATE.replaceAll(
     "{{date}}",
     date
-  ).replace("{{newsContent}}", newsContent);
+  ).replaceAll("{{newsContent}}", newsContent);
 
   const mailOptions = {
     from: `"StockXHub News" <admin@stockxhub.com>`,
