@@ -2,6 +2,7 @@
 
 import { useTradingViewWidget } from "@/hooks/useTradingViewWidget";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 interface TradingViewWidgetProps {
   title?: string;
@@ -18,7 +19,13 @@ export default function TradingViewWidget({
   height = 600,
   className,
 }: TradingViewWidgetProps) {
-  const containerRef = useTradingViewWidget({ scriptUrl, config, height });
+  const { theme } = useTheme();
+  const containerRef = useTradingViewWidget({
+    scriptUrl,
+    config,
+    height,
+    theme,
+  });
 
   return (
     <div className="w-full">
