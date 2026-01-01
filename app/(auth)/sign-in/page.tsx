@@ -3,7 +3,10 @@
 import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import { Button } from "@/components/ui/button";
+import { signInWithEmail } from "@/lib/actions/auth.action";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 export default function SignInPage() {
   const {
@@ -18,12 +21,19 @@ export default function SignInPage() {
     },
     mode: "onBlur",
   });
+  const router = useRouter();
 
   const onSubmit = async (data: SignInFormData) => {
     try {
-      console.log(data);
-    } catch (error) {
+      const result = await signInWithEmail(data);
+
+      if (result.success) {
+        toast.success(result.message);
+        router.push("/");
+      }
+    } catch (error: any) {
       console.error(error);
+      toast.error(error.message);
     }
   };
   return (
