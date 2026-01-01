@@ -19,7 +19,7 @@ export default function ThemeSwitcher() {
   const themes = [
     { name: "light", icon: Sun, label: "Light" },
     { name: "dark", icon: Moon, label: "Dark" },
-    { name: "system", icon: Monitor, label: "System" },
+    // { name: "system", icon: Monitor, label: "System" },
   ];
 
   const currentIndex = themes.findIndex((t) => t.name === theme);
@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
     >
       {theme === "light" && <Sun className="h-5 w-5" />}
       {theme === "dark" && <Moon className="h-5 w-5" />}
-      {theme === "system" && <Monitor className="h-5 w-5" />}
+      {/* {theme === "system" && <Monitor className="h-5 w-5" />} */}
     </button>
   );
 }
