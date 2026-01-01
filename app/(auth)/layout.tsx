@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
+import DashboardPreview from "./_DashboardPreview";
 
 export default async function AuthLayout({
   children,
@@ -53,13 +54,7 @@ export default async function AuthLayout({
         </div>
 
         <div className="flex-1 relative">
-          <Image
-            src={"/assets/images/dashboard.png"}
-            alt="dashboard"
-            width={1440}
-            height={1450}
-            className="auth-dashboard-preview absolute top-0"
-          />
+          <DashboardPreview />
         </div>
       </section>
     </main>

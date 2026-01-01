@@ -16,7 +16,7 @@ export default async function StockDetailsPage({
   const { symbol } = await params;
 
   return (
-    <div className="flex min-h-screen p-4 md:p-6 lg:p-8">
+    <div className="flex min-h-screen p-4 md:p-6 lg:py-8">
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         {/* Left column */}
         <div className="flex flex-col gap-6">
