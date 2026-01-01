@@ -17,8 +17,16 @@ export function useTradingViewWidget({
 
   // Normalize theme: next-themes can return "system", "light", "dark", or undefined
   const normalizedTheme = theme === "light" ? "light" : "dark";
+  const themeBackgroundColor =
+    normalizedTheme === "light" ? "#F9FAFB" : "#141414";
 
-  const configKey = JSON.stringify({ ...config, colorTheme: normalizedTheme });
+  const configKey = JSON.stringify({
+    ...config,
+    colorTheme: normalizedTheme,
+    theme: normalizedTheme,
+    backgroundColor: themeBackgroundColor,
+    isTransparent: false,
+  });
 
   useEffect(() => {
     if (!containerRef.current) return;
