@@ -3,7 +3,7 @@ import UserDropdown from "./UserDropdown";
 import ThemeSwitcher from "./ThemeSwitcher";
 import BrandLogo from "./BrandLogo";
 
-export default function Header() {
+export default function Header({ user }: { user: User }) {
   return (
     <header className="sticky top-0 header">
       <div className="container header-wrapper">
@@ -13,7 +13,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center">
           <ThemeSwitcher />
-          <UserDropdown />
+          <UserDropdown user={user} />
         </div>
       </div>
     </header>
