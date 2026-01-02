@@ -15,7 +15,7 @@ export default async function Header({ user }: { user: User }) {
         </nav>
         <div className="flex items-center">
           <ThemeSwitcher />
-          <UserDropdown user={user} />
+          <UserDropdown user={user} initialStocks={initialStocks} />
         </div>
       </div>
     </header>
