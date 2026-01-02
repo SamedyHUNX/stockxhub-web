@@ -11,10 +11,9 @@ export const signUpWithEmail = async (formData: SignUpFormData) => {
     return {
       success: true,
       data: response,
-      message: "Signed up successfully"
+      message: "Signed up successfully",
     };
   } catch (error) {
-    console.error("Sign up failed: ", error);
     return {
       success: false,
       message: "Sign up failed",
@@ -32,7 +31,6 @@ export const signInWithEmail = async (formData: SignInFormData) => {
       message: "Signed in successfully",
     };
   } catch (error) {
-    console.error("Sign in failed: ", error);
     return {
       success: false,
       message: "Sign in failed",
@@ -44,8 +42,6 @@ export const signOut = async () => {
   try {
     await auth.api.signOut({ headers: await headers() });
   } catch (error) {
-    console.error(error);
-
     return {
       success: false,
       error: "Sign out failed",

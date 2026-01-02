@@ -32,7 +32,6 @@ export default function SignInPage() {
         router.push("/");
       }
     } catch (error: any) {
-      console.error(error);
       toast.error(error.message);
     }
   };

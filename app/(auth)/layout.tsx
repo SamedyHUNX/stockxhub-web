@@ -25,18 +25,11 @@ export default async function AuthLayout({
 
       <section className="auth-right-section">
         <ThemeSwitcher />
-        <div className="z-10 relative lg:mt-4 lg:mb-16">
-          <blockquote className="auth-blockquote">
-            StockXHub turned what was once a tedious process into a seamless
-            experience. Their platform is intuitive, making it easy to manage my
-            stock portfolio with confidence.
-          </blockquote>
-
-          <Testimonial
-            author="Samedy H"
-            occupation="Software Developer/Trader"
-          />
-        </div>
+        <Testimonial
+          quote="StockXHub turned what was once a tedious process into a seamless experience. Their platform is intuitive, making it easy to manage my stock portfolio with confidence."
+          author="Samedy H"
+          occupation="Software Developer/Trader"
+        />
 
         <div className="flex-1 relative">
           <DashboardPreview />
