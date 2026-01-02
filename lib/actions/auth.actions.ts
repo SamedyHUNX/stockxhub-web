@@ -2,35 +2,11 @@
 
 import { headers } from "next/headers";
 import { auth } from "../better-auth/auth";
-import { inngest } from "../inngest/client";
+import { signInUser, signUpUser } from "../services/auth.service";
 
-export const signUpWithEmail = async ({
-  email,
-  password,
-  fullName,
-  country,
-  investmentGoals,
-  riskTolerance,
-  preferredIndustry,
-}: SignUpFormData) => {
+export const signUpWithEmail = async (formData: SignUpFormData) => {
   try {
-    const response = await auth.api.signUpEmail({
-      body: { email, password, name: fullName },
-    });
-
-    if (response) {
-      await inngest.send({
-        name: "app/user.created",
-        data: {
-          email,
-          name: fullName,
-          country,
-          investmentGoals,
-          riskTolerance,
-          preferredIndustry,
-        },
-      });
-    }
+    const response = await signUpUser(formData);
 
     return {
       success: true,
@@ -46,11 +22,9 @@ export const signUpWithEmail = async ({
   }
 };
 
-export const signInWithEmail = async ({ email, password }: SignInFormData) => {
+export const signInWithEmail = async (formData: SignInFormData) => {
   try {
-    const response = await auth.api.signInEmail({
-      body: { email, password },
-    });
+    const response = await signInUser(formData);
 
     return {
       success: true,

@@ -14,7 +14,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "StockXHub",
-  description: "A StockX Application",
+  description: "A StockXHub Application",
 };
 
 export default function RootLayout({

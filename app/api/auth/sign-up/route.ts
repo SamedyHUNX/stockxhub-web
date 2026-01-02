@@ -1,6 +1,4 @@
-import { auth } from "@/lib/better-auth/auth";
-import { inngest } from "@/lib/inngest/client";
-import { headers } from "next/headers";
+import { signUpUser } from "@/lib/services/auth.service";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -26,29 +24,16 @@ export async function POST(req: Request) {
             );
         }
 
-        const response = await auth.api.signUpEmail({
-            headers: await headers(),
-            body: {
-                email,
-                password,
-                name: userName,
-            },
+        const response = await signUpUser({
+            email,
+            password,
+            name: userName,
+            fullName: userName,
+            country,
+            investmentGoals,
+            riskTolerance,
+            preferredIndustry,
         });
-
-        if (response) {
-            // Trigger user created event
-            await inngest.send({
-                name: "app/user.created",
-                data: {
-                    email,
-                    name: userName,
-                    country,
-                    investmentGoals,
-                    riskTolerance,
-                    preferredIndustry,
-                },
-            });
-        }
 
         return NextResponse.json(response);
     } catch (error: any) {

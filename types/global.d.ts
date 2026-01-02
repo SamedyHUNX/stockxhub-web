@@ -215,6 +215,19 @@ declare global {
     threshold: number;
     changePercent?: number;
   };
+
+  type UserForNewsEmail = {
+    email: string;
+    name: string;
+  };
+
+  type MarketNewsArticle = {
+    headline: string;
+    source: string;
+    url: string;
+    summary: string;
+    datetime: number;
+  };
 }
 
 export {};
