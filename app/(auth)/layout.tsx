@@ -1,18 +1,17 @@
 import BrandLogo from "@/components/BrandLogo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { auth } from "@/lib/better-auth/auth";
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 import DashboardPreview from "./_DashboardPreview";
 import Testimonial from "@/components/Testimonial";
+import { getSession } from "@/lib/services/auth.service";
 
 export default async function AuthLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  const session = await auth.api.getSession({ headers: await headers() });
+  const session = await getSession();
 
   if (session?.user) redirect("/");
 
