@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
-import "./globals.css";
+import { IBM_Plex_Sans_Condensed } from "next/font/google";
 import ThemeProvider from "@/providers/ThemeProvider";
 import { ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
+import "./globals.css";
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+const ibmPlexSansCondensed = IBM_Plex_Sans_Condensed({
+  variable: "--font-plex-m",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700"],
@@ -13,7 +14,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "StockXHub",
-  description: "A StockX Application",
+  description: "A StockXHub Application",
 };
 
 export default function RootLayout({
@@ -23,9 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${ibmPlexMono} antialiased`}>
+      <body className={`${ibmPlexSansCondensed} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

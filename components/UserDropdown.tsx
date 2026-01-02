@@ -13,14 +13,21 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LogOut } from "lucide-react";
 import NavItem from "./NavItem";
+import { signOut } from "@/lib/actions/auth.actions";
 
-export default function UserDropdown() {
+export default function UserDropdown({
+  user,
+  initialStocks,
+}: {
+  user: User;
+  initialStocks: StockWithWatchlistStatus[];
+}) {
   const router = useRouter();
+
   const handleSignout = async () => {
+    await signOut();
     router.push("/sign-in");
   };
-
-  const user = { name: "John", email: "samedy.hunx@gmail.com" };
 
   return (
     <DropdownMenu>
@@ -68,7 +75,7 @@ export default function UserDropdown() {
         </DropdownMenuItem>
         <DropdownMenuSeparator className="bg-gray-600 hidden sm:block" />
         <nav className="sm:hidden">
-          <NavItem />
+          <NavItem initialStocks={initialStocks} />
         </nav>
       </DropdownMenuContent>
     </DropdownMenu>
