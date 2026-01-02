@@ -11,7 +11,7 @@ export const signUpWithEmail = async (formData: SignUpFormData) => {
     return {
       success: true,
       data: response,
-      message: "Signed up successfully",
+      message: "Signed up successfully"
     };
   } catch (error) {
     console.error("Sign up failed: ", error);
