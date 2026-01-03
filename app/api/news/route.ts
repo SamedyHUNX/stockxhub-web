@@ -20,13 +20,17 @@ export async function GET(request: NextRequest) {
       success: true,
       data: news,
       count: news.length,
+      message: symbols
+        ? `Fetched news for symbols: ${symbols.join(", ")}`
+        : "Fetched general market news",
     });
   } catch (error) {
     console.error("News API error:", error);
     return NextResponse.json(
       {
         success: false,
-        error: error instanceof Error ? error.message : "Failed to fetch news",
+        message:
+          error instanceof Error ? error.message : "Failed to fetch news",
       },
       { status: 500 }
     );

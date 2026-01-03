@@ -12,13 +12,14 @@ export async function GET(request: NextRequest) {
       success: true,
       data: stocks,
       count: stocks.length,
+      message: `Found ${stocks.length} stocks for query "${query}"`,
     });
   } catch (error) {
     console.error("Stock search API error:", error);
     return NextResponse.json(
       {
         success: false,
-        error:
+        message:
           error instanceof Error ? error.message : "Failed to search stocks",
       },
       { status: 500 }
@@ -33,7 +34,7 @@ export async function POST(request: NextRequest) {
 
     if (!Array.isArray(queries)) {
       return NextResponse.json(
-        { success: false, error: "queries must be an array" },
+        { success: false, message: "queries must be an array" },
         { status: 400 }
       );
     }
@@ -43,13 +44,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       data: results,
+      message: `Processed ${queries.length} stock search queries`,
     });
   } catch (error) {
     console.error("Batch stock search error:", error);
     return NextResponse.json(
       {
         success: false,
-        error:
+        message:
           error instanceof Error ? error.message : "Failed to search stocks",
       },
       { status: 500 }
