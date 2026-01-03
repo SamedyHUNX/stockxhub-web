@@ -51,3 +51,8 @@ export const signInUser = async ({ email, password }: SignInFormData) => {
     headers: await headers(),
   });
 };
+
+export const getCurrentUser = async () => {
+  const session = await getSession();
+  return session?.user || null;
+};
