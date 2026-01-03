@@ -9,17 +9,22 @@ export const getSession = async () => {
 export const signUpUser = async ({
   email,
   password,
-  name,
   fullName,
   country,
   investmentGoals,
   riskTolerance,
   preferredIndustry,
-}: SignUpFormData & { name?: string }) => {
-  const userName = name || fullName;
-
+}: SignUpFormData) => {
   const response = await auth.api.signUpEmail({
-    body: { email, password, name: userName! },
+    body: {
+      email,
+      password,
+      name: fullName,
+      country,
+      investmentGoals,
+      riskTolerance,
+      preferredIndustry,
+    },
     headers: await headers(),
   });
 
@@ -28,7 +33,7 @@ export const signUpUser = async ({
       name: "app/user.created",
       data: {
         email,
-        name: userName!,
+        name: fullName,
         country,
         investmentGoals,
         riskTolerance,

@@ -17,6 +17,8 @@ import {
   CommandList,
 } from "../ui/command";
 import { cn, getFlagEmoji } from "@/lib/utils";
+import { Control, FieldError } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 interface CountrySelectFieldProps {
   value?: string;
@@ -26,7 +28,15 @@ interface CountrySelectFieldProps {
   [key: string]: any; // Allow forwarding other props
 }
 
-export default function CountrySelectField({
+interface CountrySelectFormFieldProps {
+  name: string;
+  control: Control<any>;
+  error?: FieldError;
+  required?: boolean;
+  className?: string;
+}
+
+function CountrySelectField({
   value,
   defaultValue = "",
   onChange,
@@ -48,7 +58,9 @@ export default function CountrySelectField({
     }
   }, [value]);
 
-  const selectedCountry = options.find((country) => country.value === currentValue);
+  const selectedCountry = options.find(
+    (country) => country.value === currentValue
+  );
 
   const handleSelect = (countryValue: string) => {
     const newValue = countryValue === currentValue ? "" : countryValue;
@@ -117,6 +129,32 @@ export default function CountrySelectField({
           </Command>
         </PopoverContent>
       </Popover>
+    </div>
+  );
+}
+
+export default function CountrySelectFormField({
+  name,
+  control,
+  error,
+  required,
+  className,
+}: CountrySelectFormFieldProps) {
+  return (
+    <div>
+      <Controller
+        name={name}
+        control={control}
+        rules={required ? { required: "Country is required" } : undefined}
+        render={({ field }) => (
+          <CountrySelectField
+            value={field.value}
+            onChange={field.onChange}
+            className={className}
+          />
+        )}
+      />
+      {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
     </div>
   );
 }

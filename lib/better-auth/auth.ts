@@ -18,6 +18,7 @@ export const getAuth = async () => {
 
     secret: process.env.BETTER_AUTH_SECRET,
     baseURL: process.env.BETTER_AUTH_URL,
+
     emailAndPassword: {
       enabled: true,
       disableSignUp: false,
@@ -26,6 +27,32 @@ export const getAuth = async () => {
       maxPasswordLength: 128,
       autoSignIn: true,
     },
+
+    user: {
+      additionalFields: {
+        country: {
+          type: "string",
+          required: false,
+          defaultValue: "",
+        },
+        investmentGoals: {
+          type: "string",
+          required: false,
+          defaultValue: "",
+        },
+        riskTolerance: {
+          type: "string",
+          required: false,
+          defaultValue: "",
+        },
+        preferredIndustry: {
+          type: "string",
+          required: false,
+          defaultValue: "",
+        },
+      },
+    },
+
     plugins: [nextCookies()],
   });
 

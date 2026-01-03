@@ -1,3 +1,5 @@
+import "better-auth";
+
 declare global {
   type SignInFormData = {
     email: string;
@@ -228,6 +230,15 @@ declare global {
     summary: string;
     datetime: number;
   };
+}
+
+declare module "better-auth" {
+  interface User {
+    country?: string;
+    investmentGoals?: string;
+    riskTolerance?: string;
+    preferredIndustry?: string;
+  }
 }
 
 export {};

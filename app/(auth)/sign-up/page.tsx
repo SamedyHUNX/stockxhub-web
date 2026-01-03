@@ -1,6 +1,6 @@
 "use client";
 
-import CountrySelectField from "@/components/forms/CountrySelectField";
+import CountrySelectFormField from "@/components/forms/CountrySelectField";
 import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import SelectField from "@/components/forms/SelectField";
@@ -36,6 +36,7 @@ export default function SignUpPage() {
   const router = useRouter();
 
   const onSubmit = async (data: SignUpFormData) => {
+    console.log("data being sent: ", data);
     try {
       const result = await signUpWithEmail(data);
 
@@ -110,7 +111,12 @@ export default function SignUpPage() {
           required
         />
 
-        <CountrySelectField />
+        <CountrySelectFormField
+          name="country"
+          control={control}
+          error={errors.country}
+          required
+        />
 
         <Button
           type="submit"
