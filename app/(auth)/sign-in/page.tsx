@@ -30,6 +30,8 @@ export default function SignInPage() {
       if (result.success) {
         toast.success(result.message);
         router.push("/");
+      } else {
+        toast.error(result.message || "Invalid credentials");
       }
     } catch (error: any) {
       toast.error(error.message);
