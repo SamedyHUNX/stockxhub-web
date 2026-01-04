@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
-import { auth } from "@/lib/better-auth/auth";
-import { headers } from "next/headers";
+import { getSession } from "@/lib/services/auth.service";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 
@@ -9,9 +8,7 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await getSession();
 
   if (!session?.user) redirect("/sign-in");
 
