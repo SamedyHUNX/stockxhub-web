@@ -28,7 +28,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
           <Toaster
-            position="bottom-right"
+            position="top-right"
             toastOptions={{
               duration: 3000,
               style: {
