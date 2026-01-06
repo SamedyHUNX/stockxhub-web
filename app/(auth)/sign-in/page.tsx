@@ -4,6 +4,7 @@ import FooterLink from "@/components/forms/FooterLink";
 import InputField from "@/components/forms/InputField";
 import { Button } from "@/components/ui/button";
 import { signInWithEmail } from "@/lib/actions/auth.actions";
+import { showError, showSuccess } from "@/lib/toast";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -28,11 +29,13 @@ export default function SignInPage() {
       const result = await signInWithEmail(data);
 
       if (result.success) {
-        toast.success(result.message);
+        showSuccess(result.message);
         router.push("/");
+      } else {
+        showError(result.message || "Invalid credentials");
       }
     } catch (error: any) {
-      toast.error(error.message);
+      showError(error.message);
     }
   };
   return (

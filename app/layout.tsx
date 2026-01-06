@@ -27,7 +27,16 @@ export default function RootLayout({
       <body className={`${ibmPlexSansCondensed} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
-          <Toaster />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#fff",
+                color: "#000",
+              },
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>

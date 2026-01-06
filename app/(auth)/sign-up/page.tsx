@@ -11,6 +11,7 @@ import {
   PREFERRED_INDUSTRIES,
   RISK_TOLERANCE_OPTIONS,
 } from "@/lib/constants";
+import { showError, showSuccess } from "@/lib/toast";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -36,17 +37,17 @@ export default function SignUpPage() {
   const router = useRouter();
 
   const onSubmit = async (data: SignUpFormData) => {
-    console.log("data being sent: ", data);
     try {
       const result = await signUpWithEmail(data);
 
       if (result.success) {
-        toast.success(result.message);
-        router.push("/");
+        showSuccess(result.message);
+      } else {
+        showError(result.message);
       }
     } catch (error: any) {
       console.error(error);
-      toast.error(error.message);
+      showError(error.message);
     }
   };
 
