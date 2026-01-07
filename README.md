@@ -187,10 +187,10 @@ stockxhub-web/
 
 ## 🔗 Links
 
-- 🎨 **Figma Design**: [View Design](YOUR_FIGMA_LINK)
-- 💻 **GitHub Repository**: [Source Code](https://github.com/YOUR_USERNAME/stockxhub-web)
-- 👤 **LinkedIn**: [Connect with me](YOUR_LINKEDIN_PROFILE)
-- 🌐 **Live Demo**: [Visit Site](YOUR_LIVE_SITE_URL)
+- 🎨 **Figma Design**: [View Design](https://www.figma.com/design/F4i9aI918nqW24kSBDVbuw/StockXHub?node-id=186059-5898&t=dyxQcM4C0Hhys3kz-1)
+- 💻 **GitHub Repository**: [Source Code](https://github.com/SamedyHUNX/stockxhub-web)
+- 👤 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/vadhna-samedy-hun-91a2b01b0)
+- 🌐 **Live Demo**: [Visit Site](https://stockxhub-web.vercel.app)
 
 ## 📝 Available Scripts
 
