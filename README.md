@@ -29,14 +29,14 @@
 
 ## 📋 Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Project Structure](#project-structure)
-- [Links](#links)
-- [License](#license)
+- [🎯 About](#-about)
+- [✨ Features](#-features)
+- [🛠 Tech Stack](#-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [🔐 Environment Variables](#-environment-variables)
+- [📁 Project Structure](#-project-structure)
+- [🔗 Links](#-links)
+- [📄 License](#-license)
 
 ## 🎯 About
 
@@ -57,7 +57,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 - 🤖 **AI Integration** - Enhanced features with Inngest AI
 - 🌍 **Country Selection** - International support with country lists
 
-## 🛠 Tech Stack {#tech-stack}
+## 🛠 Tech Stack
 
 ### Frontend
 
@@ -86,7 +86,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 - **class-variance-authority** - Component variants
 - **clsx & tailwind-merge** - Utility functions
 
-## 🚀 Getting Started {#getting-started}
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -117,7 +117,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 
 3. **Set up environment variables**
 
-   Create a `.env` file in the root directory and add the required environment variables (see [Environment Variables](#environment-variables) section below)
+   Create a `.env` file in the root directory and add the required environment variables (see [Environment Variables](#-environment-variables) section below)
 
 4. **Test database connection** (optional)
 
@@ -148,7 +148,7 @@ npm run build
 npm start
 ```
 
-## 🔐 Environment Variables {#environment-variables}
+## 🔐 Environment Variables
 
 Create a `.env` file in the root directory with the following variables:
 
@@ -178,7 +178,7 @@ NODE_ENV=development
 
 > **Note:** Never commit your `.env` file to version control. It's already added to `.gitignore`.
 
-## 📁 Project Structure {#project-structure}
+## 📁 Project Structure
 
 ```
 stockxhub-web/
@@ -204,7 +204,7 @@ stockxhub-web/
 └── package.json          # Dependencies and scripts
 ```
 
-## 🔗 Links {#links}
+## 🔗 Links
 
 - 🎨 **Figma Design**: [View Design](https://www.figma.com/design/F4i9aI918nqW24kSBDVbuw/StockXHub?node-id=186059-5898&t=dyxQcM4C0Hhys3kz-1)
 - 💻 **GitHub Repository**: [Source Code](https://github.com/SamedyHUNX/stockxhub-web)
@@ -219,7 +219,7 @@ stockxhub-web/
 - `npm run lint` - Run ESLint
 - `npm run test:db` - Test database connection
 
-## 📄 License {#license}
+## 📄 License
 
 This project is private and proprietary.
 
