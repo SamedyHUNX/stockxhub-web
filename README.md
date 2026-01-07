@@ -2,15 +2,27 @@
   
 ![StockXHub](/public/readme/thumbnail.webp)
 
-## Built With
+## **Built With**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-16.1.1-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/MongoDB-7.0.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Better_Auth-1.4.10-000000?style=for-the-badge&logo=auth0&logoColor=white" alt="Better Auth" />
+<p align="center" style="font-weight:900;">
+  <strong>
+    <img src="https://img.shields.io/badge/Next.js-16.1.1-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+  </strong>
+  <strong>
+    <img src="https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  </strong>
+  <strong>
+    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  </strong>
+  <strong>
+    <img src="https://img.shields.io/badge/MongoDB-7.0.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+  </strong>
+  <strong>
+    <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </strong>
+  <strong>
+    <img src="https://img.shields.io/badge/Better_Auth-1.4.10-000000?style=for-the-badge&logo=auth0&logoColor=white" alt="Better Auth" />
+  </strong>
 </p>
 
 </div>
@@ -48,6 +60,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 ## 🛠 Tech Stack
 
 ### Frontend
+
 - **Next.js 16.1.1** - React framework with App Router
 - **React 19.2.3** - UI library
 - **TypeScript 5** - Type safety
@@ -59,6 +72,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 - **next-themes** - Theme management
 
 ### Backend
+
 - **MongoDB 7.0.0** - NoSQL database
 - **Mongoose 9.1.1** - MongoDB object modeling
 - **Better Auth 1.4.10** - Authentication solution
@@ -66,6 +80,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 - **Inngest** - Background jobs and workflows
 
 ### UI Components
+
 - **cmdk** - Command menu interface
 - **React Select** - Advanced select components
 - **class-variance-authority** - Component variants
@@ -82,12 +97,14 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/YOUR_USERNAME/stockxhub-web.git
    cd stockxhub-web
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -99,15 +116,17 @@ The platform leverages the latest web technologies to deliver a fast, responsive
    ```
 
 3. **Set up environment variables**
-   
+
    Create a `.env` file in the root directory and add the required environment variables (see [Environment Variables](#environment-variables) section below)
 
 4. **Test database connection** (optional)
+
    ```bash
    npm run test:db
    ```
 
 5. **Run the development server**
+
    ```bash
    npm run dev
    # or
@@ -119,7 +138,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
    ```
 
 6. **Open your browser**
-   
+
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### Build for Production
@@ -200,10 +219,6 @@ stockxhub-web/
 - `npm run lint` - Run ESLint
 - `npm run test:db` - Test database connection
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/YOUR_USERNAME/stockxhub-web/issues).
-
 ## 📄 License
 
 This project is private and proprietary.
@@ -211,5 +226,5 @@ This project is private and proprietary.
 ---
 
 <div align="center">
-  Made with ❤️ by <a href="YOUR_LINKEDIN_PROFILE">Your Name</a>
+  Made with ❤️ by <a href="https://www.linkedin.com/in/vadhna-samedy-hun-91a2b01b0">samedyhunx</a>
 </div>
