@@ -6,22 +6,25 @@
 
 <p align="center" style="font-weight:900;">
   <strong>
-    <img src="https://img.shields.io/badge/Next.js-16.1.1-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://badgen.net/badge/Next.js/16.1.1/000000?icon=https://api.iconify.design/simple-icons/nextdotjs.svg?color=white" alt="Next.js" />
   </strong>
   <strong>
-    <img src="https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+    <img src="https://badgen.net/badge/React/19.2.3/61DAFB?icon=https://api.iconify.design/simple-icons/react.svg?color=white" alt="React" />
   </strong>
   <strong>
-    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://badgen.net/badge/TypeScript/5/3178C6?icon=typescript" alt="TypeScript" />
   </strong>
   <strong>
-    <img src="https://img.shields.io/badge/MongoDB-7.0.0-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://badgen.net/badge/MongoDB/7.0.0/47A248?icon=mongodb" alt="MongoDB" />
   </strong>
   <strong>
-    <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://badgen.net/badge/Tailwind%20CSS/4/06B6D4?icon=https://api.iconify.design/simple-icons/tailwindcss.svg?color=white" alt="Tailwind CSS" />
   </strong>
   <strong>
-    <img src="https://img.shields.io/badge/Better_Auth-1.4.10-000000?style=for-the-badge&logo=auth0&logoColor=white" alt="Better Auth" />
+    <img src="https://badgen.net/badge/Better%20Auth/1.4.10/000000" alt="Better Auth" />
+  </strong>
+  <strong>
+    <img src="https://badgen.net/badge/Inngest/latest/000000?icon=https://api.iconify.design/simple-icons/inngest.svg?color=white" alt="Inngest" />
   </strong>
 </p>
 
