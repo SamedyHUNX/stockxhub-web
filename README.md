@@ -43,22 +43,24 @@
 
 ## 🎯 About
 
-**StockXHub** is a modern job platform built with Next.js 16 and React 19. It provides a seamless experience for both job seekers and employers, featuring authentication, job listings, search functionality, and real-time updates.
+**StockXHub** is a modern stock market tracking and analysis platform built with Next.js 16 and React 19. It provides investors and traders with real-time market data, interactive charts, stock heatmaps, market news, and personalized watchlists to make informed investment decisions.
 
-The platform leverages the latest web technologies to deliver a fast, responsive, and user-friendly experience with server-side rendering, optimized performance, and a clean, modern UI.
+The platform leverages the latest web technologies and integrates TradingView widgets to deliver a fast, responsive, and comprehensive market analysis experience with server-side rendering, optimized performance, and a clean, modern UI.
 
 ## ✨ Features
 
+- � **Real-Time Market Data** - Live stock quotes and market overview with TradingView integration
+- 🔥 **Stock Heatmap** - Visual representation of market performance at a glance
+- � **Interactive Charts** - Advanced TradingView charts for technical analysis
+- 📰 **Market News** - Stay updated with latest financial news and top stories
+- ⭐ **Watchlists** - Create and manage personalized stock watchlists
+- 🔍 **Stock Search** - Powerful search functionality to find stocks quickly
 - 🔐 **Authentication** - Secure user authentication with Better Auth
-- 💼 **Job Listings** - Browse and search through job opportunities
-- 🔍 **Advanced Search** - Powerful search functionality with cmdk
 - 🌙 **Dark Mode** - Built-in theme switching with next-themes
-- 📧 **Email Notifications** - Automated email system with Nodemailer
+- 📧 **Email Notifications** - Automated email alerts with Nodemailer
 - 🎨 **Modern UI** - Beautiful interface with Radix UI components
 - 📱 **Responsive Design** - Mobile-first, fully responsive layout
 - ⚡ **Optimized Performance** - Server-side rendering and efficient data fetching
-- 🤖 **AI Integration** - Enhanced features with Inngest AI
-- 🌍 **Country Selection** - International support with country lists
 
 ## 🛠 Tech Stack
 
@@ -88,7 +90,7 @@ The platform leverages the latest web technologies to deliver a fast, responsive
 - **React Select** - Advanced select components
 - **class-variance-authority** - Component variants
 - **clsx & tailwind-merge** - Utility functions
-
+ 
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -186,17 +188,29 @@ NODE_ENV=development
 ```
 stockxhub-web/
 ├── app/                    # Next.js App Router
-│   ├── (auth)/            # Authentication pages
+│   ├── (auth)/            # Authentication pages (sign-in, sign-up)
 │   ├── (root)/            # Main application pages
+│   │   ├── page.tsx      # Dashboard with market widgets
+│   │   └── stocks/       # Stock detail pages
 │   ├── api/               # API routes
+│   │   ├── auth/         # Authentication endpoints
+│   │   ├── stocks/       # Stock data endpoints
+│   │   ├── news/         # Market news endpoints
+│   │   └── inngest/      # Background jobs
 │   ├── globals.css        # Global styles
 │   └── layout.tsx         # Root layout
 ├── components/            # React components
+│   ├── TradingViewWidget.tsx    # TradingView chart integration
+│   ├── WatchlistButton.tsx      # Watchlist functionality
+│   ├── SearchCommand.tsx        # Stock search
+│   ├── Header.tsx               # Navigation header
+│   └── ui/                      # UI components
 ├── database/              # Database models and connection
-│   ├── models/           # Mongoose models
+│   ├── models/           # Mongoose models (watchlist)
 │   └── mongoose.ts       # Database configuration
 ├── hooks/                 # Custom React hooks
 ├── lib/                   # Utility functions and configurations
+│   └── constants.ts      # TradingView widget configs
 ├── middleware/            # Next.js middleware
 ├── providers/             # Context providers
 ├── public/                # Static assets
